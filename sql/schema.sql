@@ -70,3 +70,13 @@ CREATE TABLE order_details (
     CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES orders(order_id),
     CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
+
+-- LOG TABLE to store changes to product stock
+CREATE TABLE IF NOT EXISTS stock_changes (
+    change_id INT AUTO_INCREMENT PRIMARY KEY,  
+    product_id INT NOT NULL,                   
+    old_quantity INT,                          
+    new_quantity INT NOT NULL,                 
+    change_date DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    event_type VARCHAR(20) NOT NULL               
+);
