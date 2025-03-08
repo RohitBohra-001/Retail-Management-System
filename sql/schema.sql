@@ -1,8 +1,8 @@
  -- contains table creation statements
 
 -- create the database
-CREATE DATABASE IF NOT EXISTS online_retail_store
-USE online_retail_store
+CREATE DATABASE IF NOT EXISTS online_retail_store;
+USE online_retail_store;
 
 -- create all the req tables
 -- PRODUCTS TABLE
@@ -16,7 +16,7 @@ CREATE TABLE products(
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_supplierId FOREIGN KEY (supplierId) REFERENCES suppliers(supplierId)
-)
+);
 
 -- SUPPLIERS TABLE
 CREATE TABLE suppliers(
@@ -26,7 +26,7 @@ CREATE TABLE suppliers(
     supplierAddress VARCHAR(100) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
+);
 
 -- CUSTOMERS TABLE
 CREATE TABLE customers(
@@ -38,7 +38,7 @@ CREATE TABLE customers(
     customerAddress VARCHAR(100) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
+);
 
 -- EMPLOYEES TABLE
 CREATE TABLE employees(
@@ -53,7 +53,7 @@ CREATE TABLE employees(
     employeeSalary DECIMAL(10,2) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
+);
 
 -- ORDERS TABLE
 CREATE TABLE orders(
@@ -65,7 +65,7 @@ CREATE TABLE orders(
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_customerId FOREIGN KEY (customerId) REFERENCES customers(customerId),
-)
+);
 
 -- ORDER_DETAILS TABLE
 CREATE TABLE order_details(
@@ -78,4 +78,4 @@ CREATE TABLE order_details(
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_orderId FOREIGN KEY (orderId) REFERENCES orders(orderId),
     CONSTRAINT fk_productId FOREIGN KEY (productId) REFERENCES products(productId)
-)
+);
