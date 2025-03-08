@@ -1,22 +1,23 @@
 -- sample data insertion scripts
+
 USE online_retail_store;
 
 -- Insert sample suppliers
-INSERT INTO suppliers (supplierName, supplierPhone, supplierAddress)
+INSERT INTO suppliers (name, contact_name, phone, address)
 VALUES 
-('Supplier A', '123-456-7890', '123 A Street'),
-('Supplier B', '234-567-8901', '456 B Avenue'),
-('Supplier C', '345-678-9012', '789 C Road'),
-('Supplier D', '456-789-0123', '101 D Blvd'),
-('Supplier E', '567-890-1234', '202 E Lane'),
-('Supplier F', '678-901-2345', '303 F Street'),
-('Supplier G', '789-012-3456', '404 G Plaza'),
-('Supplier H', '890-123-4567', '505 H Drive'),
-('Supplier I', '901-234-5678', '606 I Court'),
-('Supplier J', '012-345-6789', '707 J Circle');
+('Supplier A', 'Alice', '123-456-7890', '123 A Street'),
+('Supplier B', 'Bob', '234-567-8901', '456 B Avenue'),
+('Supplier C', 'Charlie', '345-678-9012', '789 C Road'),
+('Supplier D', 'Dana', '456-789-0123', '101 D Blvd'),
+('Supplier E', 'Evan', '567-890-1234', '202 E Lane'),
+('Supplier F', 'Fiona', '678-901-2345', '303 F Street'),
+('Supplier G', 'George', '789-012-3456', '404 G Plaza'),
+('Supplier H', 'Hannah', '890-123-4567', '505 H Drive'),
+('Supplier I', 'Ivan', '901-234-5678', '606 I Court'),
+('Supplier J', 'Julia', '012-345-6789', '707 J Circle');
 
--- Insert sample products (using supplierId from above)
-INSERT INTO products (productName, description, productPrice, quantityInStock, supplierId)
+-- Insert sample products (using supplier_ids from above)
+INSERT INTO products (name, description, price, quantity_in_stock, supplier_id)
 VALUES 
 ('Laptop', 'High performance laptop', 1200.00, 50, 1),
 ('Smartphone', 'Latest model smartphone', 800.00, 100, 2),
@@ -30,7 +31,7 @@ VALUES
 ('External HDD', '1TB external hard drive', 100.00, 80, 10);
 
 -- Insert sample customers
-INSERT INTO customers (customerFirstName, customerLastName, customerEmail, customerPhone, customerAddress)
+INSERT INTO customers (first_name, last_name, email, phone, address)
 VALUES 
 ('John', 'Doe', 'john.doe@example.com', '555-1234', '12 Main St'),
 ('Jane', 'Smith', 'jane.smith@example.com', '555-2345', '34 Elm St'),
@@ -44,35 +45,35 @@ VALUES
 ('Jasmine', 'Rice', 'jasmine.rice@example.com', '555-0123', '505 Cherry St');
 
 -- Insert sample employees
-INSERT INTO employees (employeeFirstName, employeeLastName, employeeEmail, employeePhone, employeeAddress, employeePosition, employeeHireDate, employeeSalary)
+INSERT INTO employees (first_name, last_name, email, position, hire_date)
 VALUES
-('Emily', 'Clark', 'emily.clark@example.com', '555-1111', '11 Oak St', 'Manager', '2019-01-15', 70000.00),
-('Michael', 'Brown', 'michael.brown@example.com', '555-2222', '22 Elm St', 'Sales Associate', '2020-03-22', 40000.00),
-('Sarah', 'Davis', 'sarah.davis@example.com', '555-3333', '33 Pine St', 'Inventory Specialist', '2018-07-10', 45000.00),
-('David', 'Wilson', 'david.wilson@example.com', '555-4444', '44 Birch St', 'Customer Service', '2021-05-05', 38000.00),
-('Laura', 'Miller', 'laura.miller@example.com', '555-5555', '55 Cedar St', 'Cashier', '2020-11-30', 32000.00),
-('Daniel', 'Garcia', 'daniel.garcia@example.com', '555-6666', '66 Maple St', 'Warehouse Staff', '2019-09-14', 35000.00),
-('Olivia', 'Martinez', 'olivia.martinez@example.com', '555-7777', '77 Walnut St', 'Marketing Specialist', '2021-02-18', 50000.00),
-('James', 'Robinson', 'james.robinson@example.com', '555-8888', '88 Spruce St', 'IT Support', '2017-12-01', 60000.00),
-('Sophia', 'Lopez', 'sophia.lopez@example.com', '555-9999', '99 Cherry St', 'HR', '2020-06-25', 55000.00),
-('William', 'Anderson', 'william.anderson@example.com', '555-1010', '100 Willow St', 'Logistics Coordinator', '2018-04-12', 47000.00);
+('Emily', 'Clark', 'emily.clark@example.com', 'Manager', '2019-01-15'),
+('Michael', 'Brown', 'michael.brown@example.com', 'Sales Associate', '2020-03-22'),
+('Sarah', 'Davis', 'sarah.davis@example.com', 'Inventory Specialist', '2018-07-10'),
+('David', 'Wilson', 'david.wilson@example.com', 'Customer Service', '2021-05-05'),
+('Laura', 'Miller', 'laura.miller@example.com', 'Cashier', '2020-11-30'),
+('Daniel', 'Garcia', 'daniel.garcia@example.com', 'Warehouse Staff', '2019-09-14'),
+('Olivia', 'Martinez', 'olivia.martinez@example.com', 'Marketing Specialist', '2021-02-18'),
+('James', 'Robinson', 'james.robinson@example.com', 'IT Support', '2017-12-01'),
+('Sophia', 'Lopez', 'sophia.lopez@example.com', 'HR', '2020-06-25'),
+('William', 'Anderson', 'william.anderson@example.com', 'Logistics Coordinator', '2018-04-12');
 
 -- Insert sample orders
-INSERT INTO orders (customerId, orderDate, totalAmount, status)
+INSERT INTO orders (customer_id, order_date, total_amount, status)
 VALUES
-(1, '2023-02-10', 1500.00, 'delivered'),
-(2, '2023-02-11', 800.00, 'delivered'),
-(3, '2023-02-12', 300.00, 'pending'),
-(4, '2023-02-13', 200.00, 'delivered'),
-(5, '2023-02-14', 400.00, 'pending'),
-(6, '2023-02-15', 600.00, 'delivered'),
-(7, '2023-02-16', 750.00, 'pending'),
-(8, '2023-02-17', 1200.00, 'delivered'),
-(9, '2023-02-18', 450.00, 'pending'),
-(10, '2023-02-19', 500.00, 'delivered');
+(1, '2023-02-10', 1500.00, 'Completed'),
+(2, '2023-02-11', 800.00, 'Completed'),
+(3, '2023-02-12', 300.00, 'Pending'),
+(4, '2023-02-13', 200.00, 'Completed'),
+(5, '2023-02-14', 400.00, 'Pending'),
+(6, '2023-02-15', 600.00, 'Completed'),
+(7, '2023-02-16', 750.00, 'Pending'),
+(8, '2023-02-17', 1200.00, 'Completed'),
+(9, '2023-02-18', 450.00, 'Pending'),
+(10, '2023-02-19', 500.00, 'Completed');
 
 -- Insert sample order details (simulate orders with multiple products)
-INSERT INTO order_details (orderId, productId, quantity, price)
+INSERT INTO order_details (order_id, product_id, quantity, price)
 VALUES
 (1, 1, 1, 1200.00),
 (1, 3, 2, 150.00),
@@ -85,5 +86,3 @@ VALUES
 (8, 9, 10, 10.00),
 (9, 10, 1, 100.00),
 (10, 1, 1, 1200.00);
-
-
