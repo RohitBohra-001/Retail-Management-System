@@ -16,4 +16,5 @@ This project is a capstone project focused on designing and implementing a **rel
 - **Version Control:** Git, GitHub  
 
 ## **Database Schema**
-(Insert an **ER diagram** or a schema description here)  
+**ER diagram**  
+

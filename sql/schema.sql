@@ -4,6 +4,16 @@
 CREATE DATABASE IF NOT EXISTS online_retail_store;
 USE online_retail_store;
 
+-- SUPPLIERS TABLE
+CREATE TABLE suppliers (
+    supplier_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    contact_name VARCHAR(100),
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- PRODUCTS TABLE
 CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -23,16 +33,6 @@ CREATE TABLE customers (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    phone VARCHAR(20),
-    address VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- SUPPLIERS TABLE
-CREATE TABLE suppliers (
-    supplier_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    contact_name VARCHAR(100),
     phone VARCHAR(20),
     address VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
